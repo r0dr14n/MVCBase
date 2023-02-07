@@ -1,6 +1,3 @@
-/**
- * 
- */
 package controlador;
 
 import java.util.ArrayList;
@@ -87,4 +84,16 @@ public class Controlador {
 		}
 		mostrarEditoriales();
 	}
+	
+	public void eliminarEditorial(int codEditorial) {
+		int res = editorialDAO.eliminarEditorial(codEditorial);
+		if (res==-1) {
+			JOptionPane.showMessageDialog(null, "Error. No se ha podido eliminar");
+		} else {
+			JOptionPane.showMessageDialog(null, "Editorial eliminada correctamente");
+			this.NuevaEditorial.setVisible(true);
+		}
+		mostrarEditoriales();
+	}
+
 }

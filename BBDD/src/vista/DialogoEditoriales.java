@@ -80,6 +80,15 @@ public class DialogoEditoriales extends JDialog {
 							llamarActualizar();
 						}
 					});
+					{
+						JButton btnEliminar = new JButton("Eliminar");
+						btnEliminar.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								llamarEliminar();
+							}
+						});
+						panel.add(btnEliminar);
+					}
 					panel.add(btnNewButton_1);
 					btnNewButton_1.setHorizontalAlignment(SwingConstants.RIGHT);
 				}
@@ -94,6 +103,17 @@ public class DialogoEditoriales extends JDialog {
 		}
 	}
 	
+	protected void llamarEliminar() {
+		int fila = table.getSelectedRow();
+		if (fila==-1) {
+			JOptionPane.showMessageDialog(this, "Debe seleccionar una editorial");
+		} else {
+			DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+			int codEditorial = (int) modelo.getValueAt(fila, 0);
+			controlador.eliminarEditorial(codEditorial);
+		}
+	}
+
 	protected void llamarActualizar() {
 		int fila = table.getSelectedRow();
 		if (fila==-1) {
