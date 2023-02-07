@@ -16,15 +16,14 @@ public class Editorial {
 	private int anio;
 	
 	
-	
 	public Editorial() {
 		this.nombre="";
 	}
-	public Editorial(int codEditorial, String nombre, int año) {
+	public Editorial(int codEditorial, String nombre, int anio) {
 		super();
 		this.codEditorial = codEditorial;
 		this.nombre = nombre;
-		this.anio = año;
+		this.anio = anio;
 	}
 	public int getCodEditorial() {
 		return codEditorial;
@@ -41,8 +40,8 @@ public class Editorial {
 	public int getAño() {
 		return anio;
 	}
-	public void setAño(int año) {
-		this.anio = año;
+	public void setAño(int anio) {
+		this.anio = anio;
 	}
 	@Override
 	public int hashCode() {

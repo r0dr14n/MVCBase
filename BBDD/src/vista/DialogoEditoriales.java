@@ -101,7 +101,7 @@ public class DialogoEditoriales extends JDialog {
 		
 	}
 
-	public void setListaEditoriales(ArrayList<Editorial> lista) {
+	public void setListaEditoriales (ArrayList<Editorial> lista) {
 		DefaultTableModel modelo = (DefaultTableModel) table.getModel();
 		modelo.setRowCount(0);
 		for (Editorial editorial : lista) {

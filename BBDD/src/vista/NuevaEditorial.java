@@ -29,22 +29,6 @@ public class NuevaEditorial extends JFrame {
 	private Editorial editorial;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NuevaEditorial frame = new NuevaEditorial();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public NuevaEditorial() {
@@ -128,14 +112,13 @@ public class NuevaEditorial extends JFrame {
 			}
 		} catch (NumberFormatException e ) {
 			JOptionPane.showMessageDialog(null, "Introduzca un año correcto");
-		}
-		
-		
+		}	
 	}
-
+	
 	/**
 	 * @param controlador el controlador a establecer
 	 */
+	
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
@@ -148,10 +131,6 @@ public class NuevaEditorial extends JFrame {
 		} else {
 			txtNombre.setText("");
 			txtAño.setText("");
-		}
-		
+		}	
 	}
-	
-	
-
 }

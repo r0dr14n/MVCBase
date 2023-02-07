@@ -15,12 +15,11 @@ public class VentanaPpal extends JFrame {
 
 	private JPanel contentPane;
 	private Controlador controlador;
-
-
-
+	
 	/**
 	 * Create the frame.
 	 */
+	
 	public VentanaPpal() {
 		
 		setTitle("Base de datos de Biblioteca");
@@ -31,7 +30,7 @@ public class VentanaPpal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][grow][][grow][]", "[][][][][][][]"));
 		
-		JButton btnNewButton = new JButton("MostarEditoriales");
+		JButton btnNewButton = new JButton("MostrarEditoriales");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.mostrarEditoriales();

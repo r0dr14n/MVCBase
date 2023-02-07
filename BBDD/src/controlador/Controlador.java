@@ -16,23 +16,26 @@ import vista.VentanaPpal;
 /**
  * @author David
  *
- */
+ */	// El controlador tiene acceso a las ventanas y al modelo
 public class Controlador {
 
-	// VEntanas del sistema
+	// Ventanas del sistema
 	private VentanaPpal ventanaPpal;
 	private DialogoEditoriales dialogoEditoriales;
-
+	
 	private NuevaEditorial NuevaEditorial;
 	
 	// Objetos DAO o CRUD de la base de datos
 	private EditorialDAO editorialDAO;
+	// El controlador es un nexo de union entre el modelo DAO y la vista
+	// Modelo DAO contiene clases
+	// Vista contiene la interfaz
 	
 	public Controlador() {
 		// Creamos las ventanas de la aplicaci�n
-		ventanaPpal = new VentanaPpal();
-		dialogoEditoriales = new DialogoEditoriales();
-		NuevaEditorial = new NuevaEditorial();
+		this.ventanaPpal = new VentanaPpal();
+		this.dialogoEditoriales = new DialogoEditoriales();
+		this.NuevaEditorial = new NuevaEditorial();
 		
 		// Dando acceso al controlador desde las vistas
 		ventanaPpal.setControlador(this);
@@ -43,12 +46,7 @@ public class Controlador {
 		editorialDAO = new EditorialDAO();
 	}
 	
-	public void inciarPrograma() {
-		
-		
-		
-		
-		
+	public void iniciarPrograma() {
 		ventanaPpal.setVisible(true);
 	}
 	

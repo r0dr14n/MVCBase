@@ -17,6 +17,7 @@ import modelo.Editorial;
  * @author David
  * Clase que implementa un CRUD de la base batos
  * (Create, Read, update y delete)
+ * DAO = (Data Access Object)
  */
 public class EditorialDAO {
 
@@ -25,8 +26,12 @@ public class EditorialDAO {
     public EditorialDAO() {
         this.conexion = new ConexionBD();
     }
-
-
+    
+    /*	
+     *  Metodo de la clase DAO que recupera todas las editoriales de la base de datos
+     *  y las añade a un arraylist de editoriales
+     */
+    
     public ArrayList<Editorial> obtenerEditoriales() {
     	// Obtenemos una conexion a la base de datos.
 		Connection con = conexion.getConexion();
@@ -42,7 +47,7 @@ public class EditorialDAO {
 			while(resultado.next()) {
 				int codEditorial = resultado.getInt("codeditorial");
 				String nombre = resultado.getString("nombre");
-				int año = resultado.getInt("año");
+				int año = resultado.getInt("anio");
 				
 				Editorial ed = new Editorial(codEditorial, nombre,año);
 				lista.add(ed);
@@ -81,9 +86,9 @@ public class EditorialDAO {
 			// Bucle para recorrer todas las filas que devuelve la consulta
 			if (resultado.next()) {
 				String nombre = resultado.getString("nombre");
-				int año = resultado.getInt("año");
+				int anio = resultado.getInt("anio");
 				
-				ed = new Editorial(codEditorial, nombre,año);
+				ed = new Editorial(codEditorial, nombre,anio);
 			}
 			
 		} catch (SQLException e) {
@@ -110,7 +115,7 @@ public class EditorialDAO {
 		int resultado=0;
 		
 		try {
-			consulta = con.prepareStatement("INSERT INTO editoriales (nombre,año)"
+			consulta = con.prepareStatement("INSERT INTO editoriales (nombre,anio)"
 					+ " VALUES (?,?) ");
 			
 			consulta.setString(1, editorial.getNombre());
@@ -140,7 +145,7 @@ public class EditorialDAO {
 		
 		try {
 			consulta = con.prepareStatement("UPDATE `biblioteca`.`editoriales`\r\n"
-					+ "SET `nombre` = ?, `año` = ?\r\n"
+					+ "SET `nombre` = ?, `anio` = ?\r\n"
 					+ "WHERE `codEditorial` = ?;");
 			
 			consulta.setString(1, editorial.getNombre());
