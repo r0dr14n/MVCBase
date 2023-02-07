@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.util.ArrayList;
 
@@ -93,12 +95,14 @@ public class DialogoEditoriales extends JDialog {
 	}
 	
 	protected void llamarActualizar() {
-		int fila=table.getSelectedRow();
-		DefaultTableModel modelo = (DefaultTableModel) table.getModel();
-		int codEditorial = (int) modelo.getValueAt(fila, 0);
-		
-		controlador.mostrarActualizarEditorial(codEditorial);
-		
+		int fila = table.getSelectedRow();
+		if (fila==-1) {
+			JOptionPane.showMessageDialog(this, "Debe seleccionar una editorial");
+		} else {
+			DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+			int codEditorial = (int) modelo.getValueAt(fila, 0);
+			controlador.mostrarActualizarEditorial(codEditorial);
+		}
 	}
 
 	public void setListaEditoriales (ArrayList<Editorial> lista) {
